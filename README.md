@@ -1,6 +1,6 @@
 # hellow
 
-> A Vue.js project
+> A Vue.js project Node 16
 
 ## Build Setup
 
