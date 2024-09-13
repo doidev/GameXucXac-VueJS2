@@ -1,16 +1,26 @@
 <template>
   <div>
-    <button class="control btn-new">
+    <button class="control btn-new" v-on:click="newGame">
       <i class="ion-ios-plus-outline"></i>New game
     </button>
-    <button class="control btn-roll">
+    <button class="control btn-roll" v-on:click="rollDice">
       <i class="ion-ios-loop"></i>Roll dice
     </button>
-    <button class="control btn-hold">
+    <button
+      class="control btn-hold"
+      v-on:click="$emit('handleHoldDiceHoldScore')"
+    >
       <i class="ion-ios-download-outline"></i>Hold
     </button>
 
-    <input type="number" placeholder="Final score" class="final-score" />
+    <input
+      v-bind:disabled="isPlaying"
+      type="number"
+      placeholder="Final score"
+      class="final-score"
+      v-bind:value="finalScore"
+      v-on:input="$emit('handleChangeFinalScore', $event)"
+    />
   </div>
 </template>
 
@@ -19,6 +29,18 @@ export default {
   name: "controls",
   data() {
     return {};
+  },
+  props: {
+    finalScore: { type: [Number, String], default: 100 },
+    isPlaying: {type: Boolean, default: false}
+  },
+  methods: {
+    newGame() {
+      this.$emit("handleNewGame");
+    },
+    rollDice() {
+      this.$emit("handleRollDice");
+    },
   },
 };
 </script>
