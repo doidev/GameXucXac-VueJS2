@@ -2,6 +2,8 @@
 
 > A Vue.js project Node 16
 
+Link project https://github.com/doidev/GameXucXac-VueJS2.git
+
 ## Build Setup
 
 ``` bash
